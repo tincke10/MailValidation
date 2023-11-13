@@ -1,0 +1,6 @@
+{
+    "require": {
+        "egulias/email-validator": "^4.0",
+        "slim/slim": "3.0"
+    }
+}
