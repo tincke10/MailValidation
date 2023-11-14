@@ -23,12 +23,10 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
+            'Psr\\Http\\Server\\' => 16,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
-        ),
-        'I' => 
-        array (
-            'Interop\\Container\\' => 18,
         ),
         'F' => 
         array (
@@ -61,17 +59,23 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'Psr\\Http\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-server-handler/src',
+            1 => __DIR__ . '/..' . '/psr/http-server-middleware/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Interop\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
         'FastRoute\\' => 
         array (
@@ -87,16 +91,6 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'P' => 
-        array (
-            'Pimple' => 
-            array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/src',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
@@ -107,7 +101,6 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$classMap;
 
         }, null, ClassLoader::class);
