@@ -18,6 +18,11 @@ $app = AppFactory::create();
 
 $app->post('/validarCorreo', function (Request $request, Response $response) {
     $data = $request->getParsedBody();
+    if (!isset($data['email'])) {
+        $response->getBody()->write(json_encode(['error' => 'Email field is required']));
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(400);
+    }
+
     $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
 
     if (validarEmail($email)) {
