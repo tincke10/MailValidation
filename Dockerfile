@@ -1,10 +1,13 @@
-FROM php:8.1-cli
+FROM php:8.1-apache
 
 # Instala las herramientas necesarias
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip
+
+# Habilita el módulo de reescritura de Apache
+RUN a2enmod rewrite
 
 # Instala Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -21,8 +24,8 @@ RUN composer install
 # Copia el resto del código de la aplicación
 COPY . .
 
+# Cambia el propietario del directorio /var/www/html a www-data
+RUN chown -R www-data:www-data /var/www/html
+
 # Expone el puerto que usa tu aplicación (si es necesario)
 EXPOSE 80
-
-# Comando por defecto para ejecutar la API
-CMD php -S 0.0.0.0:80 -t /var/www/html
