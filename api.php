@@ -5,6 +5,7 @@ use Slim\Factory\AppFactory;
 
 require 'vendor/autoload.php';
 
+
 function validarEmail($email) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
@@ -17,7 +18,9 @@ function validarEmail($email) {
 $app = AppFactory::create();
 
 $app->post('/validarCorreo', function (Request $request, Response $response) {
-    $data = $request->getParsedBody();
+    $data = json_decode($request->getBody(), true);
+    error_log(print_r($data, true));
+
     if (!isset($data['email'])) {
         $response->getBody()->write(json_encode(['error' => 'Email field is required']));
         return $response->withHeader('Content-Type', 'application/json')->withStatus(400);
@@ -34,5 +37,6 @@ $app->post('/validarCorreo', function (Request $request, Response $response) {
     $response->getBody()->write(json_encode($result));
     return $response->withHeader('Content-Type', 'application/json');
 });
+
 
 $app->run();

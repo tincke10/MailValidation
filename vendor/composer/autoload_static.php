@@ -4,21 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
+class ComposerStaticInit1acbde1b142fc86af098f057123c15e7
 {
     public static $files = array (
-        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Symfony\\Polyfill\\Php72\\' => 23,
-            'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
-            'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -31,34 +25,15 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         'N' => 
         array (
             'Nyholm\\Psr7\\' => 12,
+            'Nyholm\\Psr7Server\\' => 18,
         ),
         'F' => 
         array (
             'FastRoute\\' => 10,
         ),
-        'E' => 
-        array (
-            'Egulias\\EmailValidator\\' => 23,
-        ),
-        'D' => 
-        array (
-            'Doctrine\\Common\\Lexer\\' => 22,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
-        ),
-        'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
-        ),
-        'Symfony\\Polyfill\\Intl\\Idn\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
-        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -85,31 +60,26 @@ class ComposerStaticInitd828b252f31d8d9604ed94519ced0b84
         array (
             0 => __DIR__ . '/..' . '/nyholm/psr7/src',
         ),
+        'Nyholm\\Psr7Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nyholm/psr7-server/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'Egulias\\EmailValidator\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/egulias/email-validator/src',
-        ),
-        'Doctrine\\Common\\Lexer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/lexer/src',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd828b252f31d8d9604ed94519ced0b84::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1acbde1b142fc86af098f057123c15e7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1acbde1b142fc86af098f057123c15e7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1acbde1b142fc86af098f057123c15e7::$classMap;
 
         }, null, ClassLoader::class);
     }
